@@ -14,6 +14,23 @@
 
 <body>
 <div id="root"></div>
+
+<div class="container">
+	<div class="calendar">
+		<div class="calendar-footer">
+			<div class="next-prev">
+				<div class="btn prev-btn">prev</div>
+				<div class="btn next-btn">next</div>
+			</div>
+			<div class="options">
+				<div class="btn jump-today"><i class="far fa-dot-circle fa-sm"></i></div>
+				<div class="btn cancel-btn">Cancel</div>
+				<div class="btn ok-btn">Ok</div>
+			</div>	
+		</div>
+	</div>
+</div>
+    
 <div class="container">
     <header class="blog-header">
         <div class="row flex-nowrap justify-content-end aligh-items-center">
@@ -217,6 +234,13 @@
     </div>
 </footer>
 <script defer src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+<script>
+	let c = $('.calendar');
+	let calendar = new Calendar(c);
+    // console.log(calendar.getSelectedDate().day);
+	// console.log(c.find(0));
+	c.find('.ok-btn').on('click', function() {console.log(calendar.getSelectedDate().fullDate)});
+</script>
 </body>
 
 </html>
